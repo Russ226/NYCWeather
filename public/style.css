@@ -1,0 +1,67 @@
+@font-face { font-family: streamster; 
+              src: url('/fonts/Streamster.ttf'); format('ttf') format('truetype'); 
+          }
+@font-face { font-family: pirates; 
+              src: url('/fonts/Pirates of Cydonia.otf') format('opentype');
+            }
+
+@font-face { font-family: persis; 
+              src: url('/fonts/Persis.otf') format('opentype'); 
+            }
+body{
+	background-color:#d387ff;
+  display: grid
+}
+head{
+	background-color:#d387ff;
+}
+
+.square {
+  border-radius: 2px;
+  padding: 20px;
+  /*font-size: 150%;*/
+
+}
+
+.cur_weather{
+	font-family: streamster;
+	text-align: center;
+	font-size: 75px;
+	color: #242AA9;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+
+}
+
+.b {
+    font-family: persis;
+    grid-column: col 3 / span 2 ;
+    grid-row: row ;
+    font-size: 15px;
+    border-collapse:collapse;
+    display: inline-block;            
+   	border: 1px solid black;
+   	padding: 20px 20px 20px 20px;
+   	box-shadow:  -1px 1px #dd91ff,
+         -2px 2px #dd91ff,
+         -3px 3px #dd91ff,
+         -4px 4px #dd91ff,
+         -5px 5px #dd91ff;
+    background-color:#dd91eb;
+}
+
+
+.date{
+  font-family: pirates;
+  position:absolute;
+  top:10px;
+  right:30px;
+  box-shadow:  -1px 1px #dd91ff,
+    -2px 2px #dd91ff,
+    -3px 3px #dd91ff,
+    -4px 4px #dd91ff,
+    -5px 5px #dd91ff;
+  background-color:#dd91eb;
+  line-height: 80%;
+  font-size: 90%;
+}
+
