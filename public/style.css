@@ -10,7 +10,7 @@
             }
 body{
 	background-color:#d387ff;
-  display: grid
+  display: grid;
 }
 head{
 	background-color:#d387ff;
@@ -65,3 +65,13 @@ head{
   font-size: 90%;
 }
 
+img {
+    width: 100%;
+    height: auto;
+}
+
+.card {
+  display:inline-block;
+  padding: 45px 45px 45px 45px;
+  max-height: 200px;
+}
