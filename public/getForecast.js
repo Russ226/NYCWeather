@@ -10,9 +10,9 @@
 
 var info = null;
 
-$.ajax({
+getWeather = $.ajax({
   url: '/forecast',
-  async: false,
+  async: true,
   dataType: 'json',
   success: function (data) {
     info = data;
@@ -32,37 +32,41 @@ function printDate(future_day){
 		
 	}
 
-
-$('#dynamic').append("<div id= 'cur' class='square'></div>");
-$("#cur").html("<div id='curWeather' class = 'b'></div>");
-
-
-$('#curWeather').append("<p>" +'currently: ' + info['a']['current_temp'] + '°F' + "</p>");
-$('#curWeather').append("<p>" +'description: ' + info['a']['status'] + "</p>");
-$('#curWeather').append("<p>" +'high/low: ' + info['a']['high_temp'] + '°' + '/' + info['a']['low_temp'] + '°' + "</p>");
-$('#curWeather').append("<p>" +'humidity: ' + info['a']['humidity'] + "</p>");
-$('#curWeather').append("<p>" +'wind speed: ' + info['a']['wind_speed'] + "</p>");
+function printWeather(info){
+	$('#dynamic').append("<div id= 'cur' class='square'></div>");
+	$("#cur").html("<div id='curWeather' class = 'b'></div>");
 
 
-$('#dynamic').append("<div id= 'future' class='square'></div>");
+	$('#curWeather').append("<p>" +'currently: ' + info['a']['current_temp'] + '°F' + "</p>");
+	$('#curWeather').append("<p>" +'description: ' + info['a']['status'] + "</p>");
+	$('#curWeather').append("<p>" +'high/low: ' + info['a']['high_temp'] + '°' + '/' + info['a']['low_temp'] + '°' + "</p>");
+	$('#curWeather').append("<p>" +'humidity: ' + info['a']['humidity'] + "</p>");
+	$('#curWeather').append("<p>" +'wind speed: ' + info['a']['wind_speed'] + "</p>");
 
-var i = 1;
 
-while(i < 7){
-	var divElment = "<div id='day" + i + "'" + " class = 'b'></div>"
-	$("#future").append(divElment);
+	$('#dynamic').append("<div id= 'future' class='square'></div>");
 
-	
-    $('#day'+i).append("<p>" + printDate(i) + "</p>");
-    $('#day'+i).append("<p>" +'description: ' + info['b'][i]['status'] + "</p>");
-    $('#day'+i).append("<p>" +'high/low: ' + info['b'][i]['high_temp'] + '°' + '/' + info['b'][i]['low_temp'] + '°' + "</p>");
-    if(info['b'][i]['humidity'] > 0)
-    	$('#day'+i).append("<p>" +'humidity: ' + info['b'][i]['humidity'] + "</p>");
-    else
-    	$('#day'+i).append("<p>" +'humidity: ' + 100 + "</p>");
-	    
-	
-	i++;
+	var i = 1;
+
+	while(i < 7){
+		var divElment = "<div id='day" + i + "'" + " class = 'b'></div>"
+		$("#future").append(divElment);
+
+		
+	    $('#day'+i).append("<p>" + printDate(i) + "</p>");
+	    $('#day'+i).append("<p>" +'description: ' + info['b'][i]['status'] + "</p>");
+	    $('#day'+i).append("<p>" +'high/low: ' + info['b'][i]['high_temp'] + '°' + '/' + info['b'][i]['low_temp'] + '°' + "</p>");
+	    if(info['b'][i]['humidity'] > 0)
+	    	$('#day'+i).append("<p>" +'humidity: ' + info['b'][i]['humidity'] + "</p>");
+	    else
+	    	$('#day'+i).append("<p>" +'humidity: ' + 100 + "</p>");
+		    
+		
+		i++;
+	}
 }
 
-	
+
+getWeather.done(function(){
+	printWeather(info);
+});

@@ -20,12 +20,6 @@ PythonShell.run('Weather.py',options,function(error,results){
 	//console.log();
 });
 
-var options = {
-	mode: 'text',
-	pythonPath: '/usr/bin/python3',
-	scriptPath: "/home/russ/Desktop/Weather/"
-};
-
 PythonShell.run('MultiDayWeather.py',options,function(error,results){
 	if(error)
 		throw error;

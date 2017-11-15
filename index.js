@@ -11,6 +11,7 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 app.use(require('./routes/pythonController'));
 app.use(require('./routes/webPageController'));
+app.use(require('./routes/newsController'));
 
 app.listen(3000,function(){
   console.log("Started on PORT 3000");
