@@ -8,12 +8,20 @@
 @font-face { font-family: persis; 
               src: url('/fonts/Persis.otf') format('opentype'); 
             }
+
+
+html {
+    background-color:#d387ff;
+}
 body{
-	background-color:#d387ff;
+	background-color:#d387ff !important;
   display: grid;
+  /*padding-top: 100px;
+  width: 100%;*/
 }
 head{
-	background-color:#d387ff;
+	background-color: #d387ff;
+  /*width: 100%;*/
 }
 
 .square {
